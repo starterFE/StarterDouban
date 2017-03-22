@@ -1,0 +1,42 @@
+{
+  "name": "StarterMall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "private": true,
+  "scripts": {
+    "start": "cross-env NODE_ENV=development WEBPACK_MODE=middleware node server/index.js",
+    "serve": "pm2 start pm2.yml",
+    "webpack-server": "NODE_ENV=development node node_modules/@xkeshi/koa2-vue2-sdk/server/webpack-dev-server.js",
+    "nodemon": "gulp lint && gulp serve",
+    "lint-client": "eslint client --ext .js,.vue",
+    "lint-server": "eslint server --ext .js",
+    "gulp-build": "gulp build",
+    "reinstall": "rm -rf node_modules && npm i",
+    "upsdk": "npm un @xkeshi/koa2-vue2-sdk && npm i @xkeshi/koa2-vue2-sdk",
+    "pack": "rimraf public && webpack --progress --hide-modules --config node_modules/@xkeshi/koa2-vue2-sdk/config/webpack.prod.conf.js",
+    "build": "npm run upsdk && disconf && npm run pack && npm run gulp-build && upyun",
+    "build-test": "cross-env NODE_ENV=dev npm run build",
+    "prune-branches": "curl -s http://scripts.fe.xkeshi.org/prune-branches.sh | sh"
+  },
+  "disconf": {
+    "app": "StarterMall",
+    "files": [
+      {
+        "key": "server",
+        "saveAs": "server.config.js"
+      },
+      {
+        "key": "upyun",
+        "saveAs": "upyun.config.js"
+      }
+    ]
+  },
+  "dependencies": {
+    "@xkeshi/koa2-vue2-sdk": "~3.0.0",
+    "normalize.css": "5.0.0"
+  },
+  "engines" : {
+    "node" : ">=6.0.0"
+  }
+}

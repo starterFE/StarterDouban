@@ -1,0 +1,1 @@
+module.exports = require('@xkeshi/koa2-vue2-sdk/config/eslintrc.conf.js')
