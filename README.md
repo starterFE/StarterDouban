@@ -1,6 +1,5 @@
-# Project-RodB
-
-> Vue.js 2 family bucket used personal website. Backend supported by LeanCloud.
+# StarterDouban
+> Vue.js 2 family bucket used Sim-Douban website. Supported by [Douban API](https://developers.douban.com/wiki/?title=api_v2)
 
 ## Build Setup
 
