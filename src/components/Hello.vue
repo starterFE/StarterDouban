@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <img src="../assets/logo.png">
+    <h1>{{ message }}</h1>
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
@@ -25,16 +26,23 @@ export default {
   name: 'hello',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
-    };
+      msg: 'Welcome to Your Vue.js App'
+    }
   },
-};
+  computed: {
+    message() {
+      return this.$store.state.demo.msg
+    }
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="stylus" scoped>
+$color = #a3a4a5;
 h1, h2 {
   font-weight: normal;
+  color: $color;
 }
 
 ul {
